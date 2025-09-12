@@ -43,8 +43,8 @@ const projects = [
 
   {
     title: "Wealth Warden",
-    description: "Wealth Warden is a personal finance tracker designed to be simple, intuitive, and efficient. Inspired by my own Excel-based template, this project aims to provide a seamless experience for tracking income, expenses, and financial goals—without unnecessary complexity.",
-    tech_stack: ["Go", "MySQL"],
+    description: "Wealth Warden is a personal finance tracker designed to be simple, intuitive, and efficient. Inspired by my own Excel-based template, this project aims to provide a seamless experience for tracking general finances, assets (enhanced crypto and stocks tracking) and financial goals - without unnecessary complexity, all in one place.",
+    tech_stack: ["Go", "Vue", "Postgres"],
     key_words: ["Finance", "Tracking"],
     image: wealthwardenImage
   },
@@ -68,9 +68,9 @@ const projects = [
 
   {
     title: "Personal AI agent assistant",
-    "description": "I designed and developed an AI-powered assistant to streamline daily operations within a company. The assistant transcribes meetings, processes product and company-related information, and builds a centralized knowledge base. Leveraging this knowledge, it can summarize meetings, generate action plans, analyze documents, and keep team members informed—minimizing the need for constant meeting attendance.",
-    tech_stack: ["NextJS", "Prisma"],
-    key_words: ["AI", "MCP", "Transcription"],
+    "description": "I designed and developed an AI-powered assistant to streamline daily operations within a company. The assistant transcribes meetings, processes product and company-related information, and builds a centralized knowledge base. Leveraging this knowledge, it can summarize meetings, generate action plans, analyze documents, and keep team members informed - minimizing the need for constant meeting attendance.",
+    tech_stack: ["Go", "Vue", "Postgres"],
+    key_words: ["AI", "Transcription", "Knowledgebase"],
     image: aiBotImage
   },
 
