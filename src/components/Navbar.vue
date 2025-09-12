@@ -13,7 +13,9 @@
                     <li class="link-item"><a href="/#about">About</a></li>
                     <li class="link-item"><a href="/#projects">Projects</a></li>
                     <li class="link-item"><a href="/#contact">Contact</a></li>
-                    <li class="link-item" :class="{ 'hover-dark': darkMode, 'hover-light': !darkMode }"><font-awesome-icon class="mobile-icon-link" :icon="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" @click="callEmit"/></li>
+                    <li class="link-item" :class="{ 'hover-dark': darkMode, 'hover-light': !darkMode }">
+                        <font-awesome-icon class="mobile-icon-link" :icon="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" @click="callEmit"/>
+                    </li>
                 </ul>
 
                 <div class="toggle-btn">
@@ -26,7 +28,9 @@
                 <li><a href="/#about" @click="closeMobileNav">About</a></li>
                 <li><a href="/#projects" @click="closeMobileNav">Projects</a></li>
                 <li><a href="/#contact" @click="closeMobileNav">Contact</a></li>
-                <li :class="{ 'hover-dark': darkMode, 'hover-light': !darkMode }"><font-awesome-icon class="mobile-icon-link" :icon="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" @click="callEmit"/></li>
+                <li :class="{ 'hover-dark': darkMode, 'hover-light': !darkMode }">
+                    <font-awesome-icon class="mobile-icon-link" :icon="darkMode ? 'fa-solid fa-sun' : 'fa-solid fa-moon'" @click="callEmit"/>
+                </li>
             </div>
           </transition>
         </div>
@@ -83,6 +87,7 @@ function toggleNavbar() {
 
 function callEmit() {
   emit('changeTheme');
+  closeMobileNav();
 }
 
 function closeMobileNav() {
