@@ -31,81 +31,76 @@ import walkoImage from "../assets/images/walko.png";
 import anScraperImage from "../assets/images/an-scraper.png";
 
 const projects = [
-  {
-    title: "SPH",
-    description: "SPH is a platform designed to centralize and analyze sports performance data. " +
-        "It integrates data from Polar devices to provide detailed insights into physical metrics, empowering users to make data-driven decisions. " +
-        "I am primarily responsible for building and maintaining the backend as well as the Android application.",
-    tech_stack: ["Go", "Kotlin", "Angular", "Postgres"],
-    key_words: ["Centralization", "Measurements"],
-    image: sphImage
+    {
+        title: "Wealth Warden",
+        description: "Wealth Warden is a personal finance tracker designed to be simple, intuitive, and efficient. " +
+            "Inspired by my own Excel-based template, this project aims to provide a seamless experience for tracking finances, assets and goals, while displaying detailed insights.",
+        tech_stack: ["Go", "Vue", "Postgres"],
+        key_words: ["Finance", "Tracking"],
+        image: wealthwardenImage
+    },
+    {
+        title: "SPH",
+        description: "SPH is a platform designed to centralize and analyze sports performance data. " +
+            "It integrates data from Polar devices to provide detailed insights into physical metrics, empowering users to make data-driven decisions. " +
+            "I am primarily responsible for building and maintaining the backend as well as the Android application.",
+        tech_stack: ["Go", "Kotlin", "Angular", "Postgres"],
+        key_words: ["Centralization", "Measurements"],
+        image: sphImage
+    },
+    {
+        title: "NoiseGuard ML",
+        description: "NoiseGuard ML is a FastAPI-based audio processing pipeline that segments .mp3 recordings using soundscape percentile metadata and classifies them with multiple ML models. " +
+            "I was responsible for designing and implementing the pipeline, re-training a classification model to improve performance on urban soundscapes and was also involved in the development of the NoiseGuard ecosystem.",
+        tech_stack: ["Python", "Postgres"],
+        key_words: ["Sound classification", "Machine learning"],
+        image: ngMlImage
   },
-
-  {
-    title: "Wealth Warden",
-    description: "Wealth Warden is a personal finance tracker designed to be simple, intuitive, and efficient. Inspired by my own Excel-based template, this project aims to provide a seamless experience for tracking general finances, assets (enhanced crypto and stocks tracking) and financial goals - without unnecessary complexity, all in one place.",
-    tech_stack: ["Go", "Vue", "Postgres"],
-    key_words: ["Finance", "Tracking"],
-    image: wealthwardenImage
-  },
-
-  {
-    title: "NoiseGuard ML",
-    description: "NoiseGuard ML is a FastAPI-based audio processing pipeline that segments .mp3 recordings using soundscape percentile metadata and classifies them with multiple ML models. " +
-        "I developed the backend, a priority queue, and structured logging. I also created utility and testing scripts, and re-trained a classification model to improve performance on urban soundscapes, which represent the majority of NoiseGuard's data.",
-    tech_stack: ["Python", "Postgres"],
-    key_words: ["Sound classification", "Transfer learning"],
-    image: ngMlImage
-  },
-
-  {
-    title: "Calibration management system",
-    description: "This is an internal operations tool for managing equipment calibration, repair and order statuses, as well as customer interactions. I implemented workflow-enhancing features, integrated HubSpot for CRM synchronization, and developed systems for automatic notifications and detailed activity logging to streamline day-to-day operations.",
-    tech_stack: ["Laravel", "Vue", "MySQL"],
-    key_words: ["Hubspot", "Internal operations"],
-    image: calSisImage
-  },
-
-  {
-    title: "Personal AI agent assistant",
-    "description": "I designed and developed an AI-powered assistant to streamline daily operations within a company. The assistant transcribes meetings, processes product and company-related information, and builds a centralized knowledge base. Leveraging this knowledge, it can summarize meetings, generate action plans, analyze documents, and keep team members informed - minimizing the need for constant meeting attendance.",
-    tech_stack: ["Go", "Vue", "Postgres"],
-    key_words: ["AI", "Transcription", "Knowledgebase"],
-    image: aiBotImage
-  },
-
-  {
-    title: "NoiseGuard License",
-    "description": "I designed and developed a secure internal licensing server to manage and validate authorized devices across our hardware ecosystem, including Raspberry Pi units, SLM modules, and custom-built solutions. The server ensures that only registered and authenticated hardware can access company resources or operate within defined parameters. It includes features such as device registration, license generation, validation endpoints.",
-    tech_stack: ["Go", "Vue", "MongoDB"],
-    key_words: ["License", "Security"],
-    image: ngLicenceImage
-  },
-
-  {
-    title: "DSA implementation",
-    "description": "I implemented most of the data structures and algorithms, to enhance my knowledge of programming, as well as to familiarize myself with Golang.",
-    tech_stack: ["Go"],
-    key_words: ["DSA", "Theory"],
-    image: dsaImage
-  },
-
-  {
-    title: "Walko",
-    "description": "Walko is a blockchain PNL analyzer, currently only on Solana. It is a simple CLI tool, which analyzes trading history and calculates theoretical performance over the wallets lifetime.",
-    tech_stack: ["Python"],
-    key_words: ["Crypto", "Solana", "PNL"],
-    image: walkoImage
-  },
-
-  {
-    title: "AvtoNet Scraper",
-    "description": "A custom-built web scraper designed for personal use to monitor car listings on AvtoNet while searching for a vehicle.\n" +
-        "The tool evolved from a basic scraper into a robust solution featuring asynchronous operations, multi-page support, automated scheduling, and browser automation via pyppeteer for better reliability with dynamic content.\n" +
-        "I no longer run or endorse scraping AvtoNet, but the project was a valuable learning experience.",
-    tech_stack: ["Python"],
-    key_words: ["AsyncIO", "APScheduler "],
-    image: anScraperImage
+    {
+        title: "Calibration management",
+        description: "This project is an inventory tracking system at it's core. I started working on it as a student project, but it evolved over time and became and integrated into multiple aspects of the company. I implemented workflow-enhancing features, integrated HubSpot for CRM synchronization, developed systems for automatic notifications and detailed activity logging to streamline day-to-day operations.",
+        tech_stack: ["Laravel", "Vue", "MySQL"],
+        key_words: ["CRM", "Internal operations"],
+        image: calSisImage
+    },
+    {
+        title: "Neurolytix",
+        description: "I designed and developed an AI-powered assistant to streamline daily operations within a company. The assistant transcribes meetings, processes product and market information, and builds a centralized knowledge base. " +
+            "Leveraging this knowledge, it can summarize meetings, generate action plans, analyze documents, and keep team members informed - increasing knowledge spread and retention between different teams.",
+        tech_stack: ["Python", "Vue", "Postgres"],
+        key_words: ["AI", "Transcription", "Knowledgebase"],
+        image: neurolytixImage
+    },
+    {
+        title: "License server",
+        description: "I designed and developed a secure licensing server to manage and validate authorized devices across our hardware ecosystem, including Raspberry Pi units, SLM modules, and custom-built solutions. " +
+            "The server ensures that only registered and authenticated hardware can access company resources or operate within defined parameters.",
+        tech_stack: ["Go", "Vue", "MongoDB"],
+        key_words: ["License manegement", "Security"],
+        image: ngLicenceImage
+    },
+    {
+        title: "DSA implementation",
+        description: "I implemented most of the data structures and algorithms, to enhance my knowledge of programming, as well as to familiarize myself with Golang.",
+        tech_stack: ["Go"],
+        key_words: ["DSA", "Theory"],
+        image: dsaImage
+    },
+    {
+        title: "Walko",
+        description: "Walko is a blockchain PNL analyzer, currently only on Solana. It is a simple CLI tool, which analyzes trading history and calculates theoretical performance over the wallets lifetime.",
+        tech_stack: ["Python"],
+        key_words: ["Crypto", "Solana", "PNL"],
+        image: walkoImage
+    },
+    {
+        title: "AvtoNet Scraper",
+        description: "I built some web crawlers for personal use to monitor listings on avto.net and nepremicnine.net. \n" +
+        "The tools feature asynchronous operations, multi-page support, automated scheduling, and browser automation via playwright.\n" +
+        "I do not endorse scraping websites, but the projects were incredibly useful for their use-cases, and were a valuable learning experience.",
+        tech_stack: ["Python"],
+        key_words: ["Crawler", "Discord"],
+        image: anScraperImage
   }
 ];
 </script>
