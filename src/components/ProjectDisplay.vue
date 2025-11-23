@@ -20,11 +20,11 @@
 
 import ProjectCard from "../components/reusable/ProjectCard.vue";
 import AnimatedComponent from "../components/reusable/AnimatedComponent.vue";
-import sphImage from "../assets/images/sph_v3.png";
-import calSisImage from "../assets/images/ims-cal_v2.png";
+import sphImage from "../assets/images/sph.png";
+import calSisImage from "../assets/images/ims-cal-sis.png";
 import wealthwardenImage from "../assets/images/wealthwarden.png";
-import ngMlImage from "../assets/images/ng-ml_v2.png";
-import aiBotImage from "../assets/images/ai_bot.png";
+import ngMlImage from "../assets/images/ng-ml.png";
+import neurolytixImage from "../assets/images/neurolytix.png";
 import ngLicenceImage from "../assets/images/ng-licence.png";
 import dsaImage from "../assets/images/dsa-go.png";
 import walkoImage from "../assets/images/walko.png";

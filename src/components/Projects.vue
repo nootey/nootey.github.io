@@ -25,7 +25,7 @@
           <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" @click="$router.push({name: 'project-view'})">
               <div class="carousel-item active">
-                <img src="../assets/images/sph_v3.png" class="d-block w-100" alt="SPH">
+                <img src="../assets/images/sph.png" class="d-block w-100" alt="SPH">
                 <div class="carousel-caption d-none d-md-block">
                   <h5 class="carousel-text">SPH</h5>
                   <p class="carousel-text">Measurement platform.</p>
@@ -35,25 +35,18 @@
                 <img src="../assets/images/wealthwarden.png" class="d-block w-100" alt="WealthWarden">
                 <div class="carousel-caption d-none d-md-block">
                   <h5 class="carousel-text">WealthWarden</h5>
-                  <p class="carousel-text">Personal finance app.</p>
+                  <p class="carousel-text">Personal finance tracker.</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="../assets/images/ng-ml_v2.png" class="d-block w-100" alt="NoiseGuard ML">
+                <img src="../assets/images/ng-ml.png" class="d-block w-100" alt="NoiseGuard ML">
                 <div class="carousel-caption d-none d-md-block">
                   <h5 class="carousel-text">NoiseGuard ML</h5>
                   <p class="carousel-text">Audio classification server.</p>
                 </div>
               </div>
               <div class="carousel-item">
-                <img src="../assets/images/ims-cal_v2.png" class="d-block w-100" alt="Calibration management">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="carousel-text">Calibration system</h5>
-                  <p class="carousel-text">Internal management tool.</p>
-                </div>
-              </div>
-              <div class="carousel-item">
-                <img src="../assets/images/ai_bot.png" class="d-block w-100" alt="Calibration management">
+                <img src="../assets/images/neurolytix.png" class="d-block w-100" alt="Calibration management">
                 <div class="carousel-caption d-none d-md-block">
                   <h5 class="carousel-text">AI Assistant</h5>
                   <p class="carousel-text">Company knowledge manager.</p>
