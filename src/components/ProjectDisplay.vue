@@ -40,8 +40,8 @@ const projects = [
         image: wealthwardenImage
     },
     {
-        title: "SPH",
-        description: "SPH is a platform designed to centralize and analyze sports performance data. " +
+        title: "Sportheartt",
+        description: "Sportheartt is a platform designed to centralize and analyze sports performance data. " +
             "It integrates data from Polar devices to provide detailed insights into physical metrics, empowering users to make data-driven decisions. " +
             "I am primarily responsible for building and maintaining the backend as well as the Android application.",
         tech_stack: ["Go", "Kotlin", "Angular", "Postgres"],
@@ -94,7 +94,7 @@ const projects = [
         image: walkoImage
     },
     {
-        title: "AvtoNet Scraper",
+        title: "Crawlers",
         description: "I built some web crawlers for personal use to monitor listings on avto.net and nepremicnine.net. \n" +
         "The tools feature asynchronous operations, multi-page support, automated scheduling, and browser automation via playwright.\n" +
         "I do not endorse scraping websites, but the projects were incredibly useful for their use-cases, and were a valuable learning experience.",

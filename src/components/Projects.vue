@@ -25,10 +25,10 @@
           <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" @click="$router.push({name: 'project-view'})">
               <div class="carousel-item active">
-                <img src="../assets/images/sph.png" class="d-block w-100" alt="SPH">
+                <img src="../assets/images/sph.png" class="d-block w-100" alt="Sportheartt">
                 <div class="carousel-caption d-none d-md-block">
                   <h5 class="carousel-text">SPH</h5>
-                  <p class="carousel-text">Measurement platform.</p>
+                  <p class="carousel-text">Sportheartt</p>
                 </div>
               </div>
               <div class="carousel-item active">
@@ -48,7 +48,7 @@
               <div class="carousel-item">
                 <img src="../assets/images/neurolytix.png" class="d-block w-100" alt="Calibration management">
                 <div class="carousel-caption d-none d-md-block">
-                  <h5 class="carousel-text">AI Assistant</h5>
+                  <h5 class="carousel-text">Neurolytix</h5>
                   <p class="carousel-text">Company knowledge manager.</p>
                 </div>
               </div>
