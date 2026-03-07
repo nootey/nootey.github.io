@@ -34,9 +34,9 @@ const projects = [
     {
         title: "Wealth Warden",
         description: "Wealth Warden is a personal finance tracker designed to be simple, intuitive, and efficient. " +
-            "Inspired by my own Excel-based template, this project aims to provide a seamless experience for tracking finances, assets and goals, while displaying detailed insights.",
+            "Inspired by my own Excel-based template, this project aims to provide a seamless experience for tracking personal finances, investment assets and savings goals, while displaying detailed insights.",
         tech_stack: ["Go", "Vue", "Postgres"],
-        key_words: ["Finance", "Tracking"],
+        key_words: ["Personal finance", "Investments"],
         image: wealthwardenImage
     },
     {

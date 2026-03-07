@@ -25,17 +25,17 @@
           <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner" @click="$router.push({name: 'project-view'})">
               <div class="carousel-item active">
-                <img src="../assets/images/sph.png" class="d-block w-100" alt="Sportheartt">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="carousel-text">Sportheartt</h5>
-                  <p class="carousel-text">Athlete measurement platform.</p>
-                </div>
-              </div>
-              <div class="carousel-item active">
                 <img src="../assets/images/wealthwarden.png" class="d-block w-100" alt="WealthWarden">
                 <div class="carousel-caption d-none d-md-block">
                   <h5 class="carousel-text">WealthWarden</h5>
                   <p class="carousel-text">Personal finance tracker.</p>
+                </div>
+              </div>
+              <div class="carousel-item active">
+                <img src="../assets/images/sph.png" class="d-block w-100" alt="Sportheartt">
+                <div class="carousel-caption d-none d-md-block">
+                  <h5 class="carousel-text">Sportheartt</h5>
+                  <p class="carousel-text">Athlete measurement platform.</p>
                 </div>
               </div>
               <div class="carousel-item">
