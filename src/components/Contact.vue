@@ -58,7 +58,7 @@
           <div class="row" style="border-left: 5px solid var(--accent-color); padding-left: 10px;">
             <div class="row"><b>Email</b></div>
             <div class="row">
-              <a href="mailto:poiskusni@gmail.com" class="email-link">poiskusni@gmail.com</a>
+              <a href="mailto:jure.bovha2@gmail.com" class="email-link">jure.bovha2@gmail.com</a>
             </div>
           </div>
         </div>
