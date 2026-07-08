@@ -1,32 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@1,600&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
-html[theme='light'] {
-    --background-color-primary: #FFFFFF;
+html[theme="light"] {
+    --background-color-primary: #ffffff;
     --background-color-secondary: #f5f5f5;
-    --background-color-tertiary: #E3E3E3;
-    --accent-color: #476EF7;
-    --border-color: #DEE2E6;
+    --background-color-tertiary: #e3e3e3;
+    --accent-color: #476ef7;
+    --border-color: #dee2e6;
     --text-color-primary: #222;
-    --text-color-secondary: #524C4C;
-    --text-color-tertiary: #9B9B9B;
-    --title-color-primary: #3A4653;
+    --text-color-secondary: #524c4c;
+    --text-color-tertiary: #9b9b9b;
+    --title-color-primary: #3a4653;
     --footer-color: #262323;
     --scrollbar-thumb-color: #888;
     --scrollbar-thumb-hover-color: #555;
 }
-  
-html[theme='dark'] {
+
+html[theme="dark"] {
     --background-color-primary: #100f0f;
     --background-color-secondary: #1a1a1a;
-    --background-color-tertiary: #1E1E1E;
-    --accent-color: #F6C216;
+    --background-color-tertiary: #1e1e1e;
+    --accent-color: #f6c216;
     --border-color: #555555;
-    --text-color-primary: #FFFFFF;
-    --text-color-secondary: #BEBEBE;
+    --text-color-primary: #ffffff;
+    --text-color-secondary: #bebebe;
     --text-color-tertiary: #808080;
-    --title-color-primary: #CCCCCC;
+    --title-color-primary: #cccccc;
     --footer-color: #222121;
     --scrollbar-thumb-color: #888;
     --scrollbar-thumb-hover-color: #555;
@@ -65,43 +65,48 @@ body {
     text-align: left;
 }
 
-.title:before{
+.title:before {
     opacity: 0;
 }
 
-.title{
+.title {
     text-align: left;
     font-size: 2.5rem;
     font-weight: 700;
-    animation: 
-        revealTitle 4s ease-in-out;
+    animation: revealTitle 4s ease-in-out;
 }
 
 @keyframes revealTitle {
     0% {
-      opacity: 0;
-      transform: translateY(1em); /* Adjusted translateY value for smoother appearance */
+        opacity: 0;
+        transform: translateY(1em); /* Adjusted translateY value for smoother appearance */
     }
     30%,
     50% {
-      opacity: 1;
-      transform: translateY(0); /* Keep it at translateY(0) to maintain position */
+        opacity: 1;
+        transform: translateY(0); /* Keep it at translateY(0) to maintain position */
     }
     100% {
-      opacity: 1;
-      transform: none;
+        opacity: 1;
+        transform: none;
     }
 }
 
 .btn.btn-primary {
-    font-family: 'Quicksand', sans-serif;
+    font-family: "Quicksand", sans-serif;
     font-weight: bold;
     height: 2.5rem;
     line-height: 2.5rem;
     padding: 0 3rem;
     border: 0;
     border-radius: 3rem;
-    background-image:linear-gradient(131deg, var(--accent-grad-1), var(--accent-grad-2), var(--accent-grad-3), var(--accent-grad-4));
+    background-image: linear-gradient(
+        131deg,
+        var(--accent-grad-1),
+        var(--accent-grad-2),
+        var(--accent-grad-3),
+        var(--accent-grad-4)
+    );
     background-size: 300% 100%;
     transition: all 0.3s ease-in-out;
 }
@@ -113,44 +118,45 @@ body {
 }
 
 .main-button {
-padding: 1rem 1.75rem 1rem 1.75rem;
-width: 100%;
-border-radius: 7px;
-position: relative;
-text-transform: uppercase;
-text-decoration: none;;
-font-weight: 700;
-box-shadow: 0.33em 0.33em 0 0 var(--accent-color),
-    inset 0 0 0 0 var(--accent-color);
-font-size: 0.9rem;
-line-height: 1.25rem;
-letter-spacing: 0.1em;
-margin-top: 0;
-color: var(--text-color-primary);
-background-color: var(--background-color-secondary);
-border: 1px solid var(--background-color-tertiary);
-transition: all 0.3s linear;
+    padding: 1rem 1.75rem 1rem 1.75rem;
+    width: 100%;
+    border-radius: 7px;
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 700;
+    box-shadow:
+        0.33em 0.33em 0 0 var(--accent-color),
+        inset 0 0 0 0 var(--accent-color);
+    font-size: 0.9rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.1em;
+    margin-top: 0;
+    color: var(--text-color-primary);
+    background-color: var(--background-color-secondary);
+    border: 1px solid var(--background-color-tertiary);
+    transition: all 0.3s linear;
 }
 
 .main-button:before {
-content: '';
-position: absolute;
-top: 0;
-left: 0;
-bottom: 0;
-right: 0;
-z-index: -10;
-transition: all 0.3s linear;
-transform: scaleX(0);
-transform-origin: left;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -10;
+    transition: all 0.3s linear;
+    transform: scaleX(0);
+    transform-origin: left;
 }
 
 .main-button:hover:before {
-transform: scaleX(1);
+    transform: scaleX(1);
 }
 
 .main-button:hover {
-box-shadow: none;
+    box-shadow: none;
 }
 
 .side-button {
@@ -171,7 +177,7 @@ box-shadow: none;
 }
 
 .side-button::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -205,20 +211,19 @@ box-shadow: none;
     }
 }
 
-
 @media only screen and (max-width: 800px) {
     .smoothie-container {
         width: 92%;
         padding-top: 20px;
         margin-top: 0;
     }
-    .paragraph-text{
+    .paragraph-text {
         text-align: center;
     }
-    .content-wrapper{
+    .content-wrapper {
         padding-top: 30px;
     }
-    .title{
+    .title {
         text-align: center;
     }
 }
@@ -255,4 +260,3 @@ box-shadow: none;
     height: 0;
     width: 0;
 }
-

@@ -1,8 +1,8 @@
 <template>
-      <Home :darkMode="darkMode" />
-      <About :darkMode="darkMode" />
-      <Projects :darkMode="darkMode"/>
-      <Contact :darkMode="darkMode"/>
+    <Home :dark-mode="darkMode" />
+    <About :dark-mode="darkMode" />
+    <Projects :dark-mode="darkMode" />
+    <Contact :dark-mode="darkMode" />
 </template>
 
 <script setup>
@@ -12,10 +12,7 @@ import Projects from "../components/Projects.vue";
 import Contact from "../components/Contact.vue";
 import Footer from "../components/Footer.vue";
 
-const props = defineProps(['darkMode']);
-
+const props = defineProps(["darkMode"]);
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
