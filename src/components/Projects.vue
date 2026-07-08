@@ -35,7 +35,7 @@
                 <img src="../assets/images/sph.png" class="d-block w-100" alt="Sportheartt">
                 <div class="carousel-caption d-none d-md-block">
                   <h5 class="carousel-text">Sportheartt</h5>
-                  <p class="carousel-text">Athlete measurement platform.</p>
+                  <p class="carousel-text">Centralized athlete performance measurement platform.</p>
                 </div>
               </div>
               <div class="carousel-item">

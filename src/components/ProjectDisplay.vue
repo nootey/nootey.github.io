@@ -39,8 +39,8 @@ const projects = [
         image: wealthwardenImage
     },
     {
-        title: "Sportheartt",
-        description: "Sportheartt is a platform designed to centralize and analyze sports performance data. " +
+        title: "Athlete performance monitoring",
+        description: "Was a part in the development of a platform designed to centralize and analyze sports performance data. " +
             "It integrates data from Polar devices to provide detailed insights into physical metrics, empowering users to make data-driven decisions. " +
             "I am primarily responsible for building and maintaining the backend as well as the Android application.",
         tech_stack: ["Go", "Kotlin", "Angular", "Postgres"],
@@ -48,8 +48,8 @@ const projects = [
         image: sphImage
     },
     {
-        title: "NoiseGuard ML",
-        description: "NoiseGuard ML is a FastAPI-based audio processing pipeline that segments .mp3 recordings using soundscape percentile metadata and classifies them with multiple ML models. " +
+        title: "Sound classification",
+        description: "I've started building and contributed to NoiseGuards implementation of sound event classification. It is a FastAPI-based audio processing pipeline that segments .mp3 recordings using soundscape percentile metadata and classifies them with multiple ML models. " +
             "I was responsible for designing and implementing the pipeline, re-training a classification model to improve performance on urban soundscapes and was also involved in the development of the NoiseGuard ecosystem.",
         tech_stack: ["Python", "Postgres"],
         key_words: ["Sound classification", "Machine learning"],
@@ -71,20 +71,6 @@ const projects = [
         image: ngLicenceImage
     },
     {
-        title: "DSA implementation",
-        description: "I implemented most of the data structures and algorithms, to enhance my knowledge of programming, as well as to familiarize myself with Golang.",
-        tech_stack: ["Go"],
-        key_words: ["DSA", "Theory"],
-        image: dsaImage
-    },
-    {
-        title: "Walko",
-        description: "Walko is a blockchain PNL analyzer, currently only on Solana. It is a simple CLI tool, which analyzes trading history and calculates theoretical performance over the wallets lifetime.",
-        tech_stack: ["Python"],
-        key_words: ["Crypto", "Solana", "PNL"],
-        image: walkoImage
-    },
-    {
         title: "Crawlers",
         description: "I built some web crawlers for personal use to monitor listings on avto.net and nepremicnine.net. \n" +
         "The tools feature asynchronous operations, multi-page support, automated scheduling, and browser automation via playwright.\n" +
@@ -92,14 +78,14 @@ const projects = [
         tech_stack: ["Python"],
         key_words: ["Crawler", "Discord"],
         image: anScraperImage
-  }
+    }
 ];
 </script>
 
 <style scoped>
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
   width: 100%;
   justify-items: center;
@@ -107,7 +93,7 @@ const projects = [
 
 @media(max-width: 925px) {
   .project-grid {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
   }
 }
 </style>

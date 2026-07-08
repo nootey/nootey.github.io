@@ -9,7 +9,7 @@
     <div class="project-description-wrapper">
       <div class="project-description">
         <div v-if="image" class="d-flex flex-column w-100 justify-content-center align-items-center">
-          <img :src="image" :alt="title + ' image'" class="project-image" width="100%" />
+          <img :src="image" :alt="title + ' image'" class="project-image" />
         </div>
 
         <p class="description">{{ description }}</p>
@@ -91,7 +91,7 @@ const techIcons = {
   text-align: center;
   color: var(--text-color-primary);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-  height: 550px;
+  height: 680px;
 }
 
 .project-header {
@@ -106,26 +106,42 @@ const techIcons = {
 
 .project-description-wrapper {
   flex: 1;
+  min-height: 0;
+  display: flex;
   overflow-y: hidden;
   border-bottom-right-radius: 16px;
   border-bottom-left-radius: 16px;
 }
 
 .project-description {
-  padding: 10px 20px 20px;
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
   text-align: center;
+  gap: 1rem;
+}
+
+.project-image {
+  max-width: 100%;
+  max-height: 380px;
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
 }
 
 .description {
-  height: 100px;
-  overflow: auto;
+  flex: 1;
+  min-height: 0;
+  margin-bottom: 0;
+  overflow-y: auto;
 }
 
 .chips-tech-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-top: 15px;
   flex-wrap: wrap;
 }
 
@@ -178,7 +194,10 @@ const techIcons = {
 
 @media(max-width: 545px) {
   .project-card {
-      height: 490px;
+      height: 540px;
+  }
+  .project-image {
+      max-height: 240px;
   }
 }
 
