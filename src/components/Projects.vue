@@ -45,13 +45,6 @@
                   <p class="carousel-text">Audio classification server.</p>
                 </div>
               </div>
-              <div class="carousel-item">
-                <img src="../assets/images/neurolytix.png" class="d-block w-100" alt="Calibration management">
-                <div class="carousel-caption d-none d-md-block">
-                  <h5 class="carousel-text">Neurolytix</h5>
-                  <p class="carousel-text">Company knowledge manager.</p>
-                </div>
-              </div>
             </div>
             <button class="carousel-control-prev" type="button" data-bs-target="#projectCarousel" data-bs-slide="prev">
               <span class="custom-arrow left-arrow"></span>

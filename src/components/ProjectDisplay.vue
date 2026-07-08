@@ -24,7 +24,6 @@ import sphImage from "../assets/images/sph.png";
 import calSisImage from "../assets/images/ims-cal-sis.png";
 import wealthwardenImage from "../assets/images/wealthwarden.png";
 import ngMlImage from "../assets/images/ng-ml.png";
-import neurolytixImage from "../assets/images/neurolytix.png";
 import ngLicenceImage from "../assets/images/ng-licence.png";
 import dsaImage from "../assets/images/dsa-go.png";
 import walkoImage from "../assets/images/walko.png";
@@ -62,14 +61,6 @@ const projects = [
         tech_stack: ["Laravel", "Vue", "MySQL"],
         key_words: ["CRM", "Internal operations"],
         image: calSisImage
-    },
-    {
-        title: "Neurolytix",
-        description: "I designed and developed an AI-powered assistant to streamline daily operations within a company. The assistant transcribes meetings, processes product and market information, and builds a centralized knowledge base. " +
-            "Leveraging this knowledge, it can summarize meetings, generate action plans, analyze documents, and keep team members informed - increasing knowledge spread and retention between different teams.",
-        tech_stack: ["Python", "Vue", "Postgres"],
-        key_words: ["AI", "Transcription", "Knowledgebase"],
-        image: neurolytixImage
     },
     {
         title: "License server",
