@@ -29,12 +29,14 @@
     },
     "devDependencies": {
         "@eslint/js": "^9.39.2",
+        "@tailwindcss/vite": "^4.3.3",
         "@vitejs/plugin-vue": "^6.0.5",
         "eslint": "^9.39.2",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-vue": "^10.6.2",
         "prettier": "^3.8.1",
         "sass-embedded": "^1.89.0",
+        "tailwindcss": "^4.3.3",
         "vite": "^8.0.3",
         "vue-eslint-parser": "^10.4.0"
     }

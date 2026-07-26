@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/*
+ * Theme is toggled by the `theme` attribute on <html> (see services/store/theme.js),
+ * not by a class or by prefers-color-scheme, so `dark:` has to be taught about it.
+ */
+@custom-variant dark (&:where([theme="dark"], [theme="dark"] *));
