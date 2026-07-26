@@ -28,7 +28,7 @@
                 </ul>
             </nav>
 
-            <div class="flex items-center gap-2">
+            <div class="-mr-2 flex items-center gap-2">
                 <button
                     class="icon-btn inline-flex items-center justify-center"
                     :aria-label="darkMode ? 'Switch to light theme' : 'Switch to dark theme'"
@@ -103,8 +103,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick, watch } from "vue";
-import { useRoute } from "vue-router";
+import { ref, onMounted, onUnmounted } from "vue";
 import nLight from "../assets/images/n-light.png";
 import nDark from "../assets/images/n-dark.png";
 
@@ -115,49 +114,44 @@ const emit = defineEmits(["changeTheme"]);
 
 const nav_items = [
     { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
     { id: "experience", label: "Experience" },
     { id: "projects", label: "Projects" },
-    { id: "education", label: "Education" },
     { id: "contact", label: "Contact" },
 ];
 
-const route = useRoute();
 const mobile_nav = ref(false);
 const scrolled = ref(false);
 const scroll_progress = ref(0);
 const active_id = ref("");
 
-let spy_observer = null;
+const spy_ids = ["home", ...nav_items.map((item) => item.id)];
 
 function onScroll() {
     scrolled.value = window.scrollY > 8;
 
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
     scroll_progress.value = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+
+    updateActive();
 }
 
 /*
- * Sections are rendered by sibling components, so they do not exist yet when
- * this component mounts. Re-observing on route change also covers navigating
- * back from /project-view.
+ * Looked up fresh, not cached: sections are rendered by sibling components, so a
+ * re-render swaps the nodes and a held reference goes stale. The header line
+ * keeps this independent of section height, which varies from stubs to full blocks.
  */
-async function observeSections() {
-    spy_observer?.disconnect();
-    await nextTick();
+function updateActive() {
+    let current = "";
 
-    const sections = nav_items.map((item) => document.getElementById(item.id)).filter(Boolean);
-    if (!sections.length) return;
+    for (const id of spy_ids) {
+        const section = document.getElementById(id);
+        if (section && section.getBoundingClientRect().top <= 96) current = id;
+    }
 
-    spy_observer = new IntersectionObserver(
-        (entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) active_id.value = entry.target.id;
-            });
-        },
-        { rootMargin: "-45% 0px -50% 0px" },
-    );
-    sections.forEach((section) => spy_observer.observe(section));
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollable > 0 && window.scrollY >= scrollable - 2) current = spy_ids[spy_ids.length - 1];
+
+    active_id.value = current;
 }
 
 function toggleNavbar() {
@@ -178,16 +172,12 @@ function callEmit() {
 onMounted(() => {
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
-    observeSections();
 });
 
 onUnmounted(() => {
     window.removeEventListener("scroll", onScroll);
-    spy_observer?.disconnect();
     document.body.style.overflow = "";
 });
-
-watch(() => route.path, observeSections);
 </script>
 
 <style scoped>
@@ -224,11 +214,6 @@ watch(() => route.path, observeSections);
     box-shadow: var(--shadow);
 }
 
-/*
- * No `display` here on purpose. Scoped styles compile to `.icon-btn[data-v-…]`
- * (specificity 0,2,0) and would beat Tailwind's `.md\:hidden` (0,1,0), pinning
- * the nav toggle visible on desktop. Layout comes from utilities on the button.
- */
 .icon-btn {
     flex-shrink: 0;
     width: 38px;

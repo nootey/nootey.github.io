@@ -7,8 +7,8 @@ html[theme="light"] {
     --background-color-secondary: #f5f5f5;
     --background-color-tertiary: #e3e3e3;
     /*--accent-color: #476EF7;*/
-    --accent-color: #476EF7;
-    --accent-2-color: #6747F7;
+    --accent-color: #F6A016;
+    --accent-2-color: #F6C216;
     --border-color: #dee2e6;
     --text-color-primary: #222;
     --text-color-secondary: #524c4c;
@@ -20,6 +20,8 @@ html[theme="light"] {
 
     --surface: #f7f8fa;
     --surface-2: #eef0f4;
+    --hero-plate: #f2f4f7;
+    --hero-glow: rgb(120 132 152 / 0.32);
     --border-subtle: rgb(0 0 0 / 0.08);
     --accent-rgb: 30 68 186; /* keep in sync with --accent-color */
     --shadow:
@@ -44,6 +46,9 @@ html[theme="dark"] {
 
     --surface: #171717;
     --surface-2: #202020;
+
+    --hero-plate: #e6e7ea;
+    --hero-glow: rgb(255 255 255 / 0.28);
     --border-subtle: rgb(255 255 255 / 0.09);
     --accent-rgb: 242 163 0; /* keep in sync with --accent-color */
     --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.45);
