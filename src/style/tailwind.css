@@ -5,3 +5,27 @@
  * not by a class or by prefers-color-scheme, so `dark:` has to be taught about it.
  */
 @custom-variant dark (&:where([theme="dark"], [theme="dark"] *));
+
+/*
+ * `inline` matters here: it compiles utilities down to `var(--surface)` etc.
+ * directly, so they follow the [theme] attribute switch. Without it the values
+ * would be snapshotted against :root and the dark theme would not apply.
+ * Tokens themselves live in app.css, defined once per theme.
+ */
+@theme inline {
+    --color-primary: var(--background-color-primary);
+    --color-secondary: var(--background-color-secondary);
+    --color-tertiary: var(--background-color-tertiary);
+    --color-surface: var(--surface);
+    --color-surface-2: var(--surface-2);
+    --color-accent: var(--accent-color);
+    --color-accent-2: var(--accent-2-color);
+    --color-title: var(--title-color-primary);
+    --color-body: var(--text-color-primary);
+    --color-muted: var(--text-color-secondary);
+    --color-faint: var(--text-color-tertiary);
+
+    --color-subtle: var(--border-subtle);
+
+    --shadow-card: var(--shadow);
+}

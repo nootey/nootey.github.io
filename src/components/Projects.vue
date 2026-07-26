@@ -26,7 +26,13 @@
                 </div>
             </div>
 
-            <!-- Right carousel -->
+            <!--
+                Right carousel — DISABLED, awaiting the hand-rolled Vue replacement (Phase 5).
+                This was driven entirely by Bootstrap's JS (data-bs-ride / data-bs-slide /
+                .carousel-item.active), which no longer exists now that Bootstrap is removed.
+                Left in place as the spec for the replacement: 3 slides, prev/next, caption
+                overlay, whole thing clicks through to the 'project-view' route.
+
             <div id="inner" class="d-flex flex-row" style="width: 80%">
                 <div class="carousel-wrapper">
                     <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -72,6 +78,7 @@
                     </div>
                 </div>
             </div>
+            -->
 
             <div class="d-flex flex-row w-100 justify-content-center mt-2">
                 <button
