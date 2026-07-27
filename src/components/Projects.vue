@@ -5,36 +5,33 @@
             Projects
         </h2>
 
-        <p class="text-muted mb-10 text-left font-light">
+        <p class="text-muted mb-6 text-left font-light sm:mb-10">
             Here are a few projects I’ve worked on — ranging from professional applications developed as part of my full-time role to personal experiments and side projects. They reflect my interest in solving real problems.
         </p>
 
-        <div class="relative mx-auto max-w-4xl">
-            <div class="overflow-hidden rounded-3xl">
+        <div class="relative">
+            <!-- Vertical padding keeps the cards' hover lift and shadow out of the clip. -->
+            <div class="overflow-hidden py-2 sm:py-4">
                 <div
                     class="flex transition-transform duration-500 ease-out"
-                    :style="{ transform: `translateX(-${index * 100}%)` }"
+                    :style="{ transform: `translateX(-${page * 100}%)` }"
                 >
-                    <button
-                        v-for="project in projects"
-                        :key="project.title"
-                        type="button"
-                        class="w-full shrink-0 cursor-pointer"
-                        @click="$router.push({ name: 'project-view' })"
-                    >
-                        <img :src="project.image" :alt="project.title" class="block h-auto w-full" />
-
-                        <div class="bg-surface -mt-4 px-5 py-2 text-left sm:px-6">
-                            <h3 class="text-title text-base font-semibold sm:text-lg">{{ project.title }}</h3>
-                            <p class="text-muted text-sm font-light">{{ project.description }}</p>
-                        </div>
-                    </button>
+                    <div v-for="project in projects" :key="project.title" class="w-full shrink-0 md:w-1/2 md:px-3">
+                        <ProjectCard
+                            :title="project.title"
+                            :description="project.description"
+                            :tech-stack="project.techStack"
+                            :key-words="project.keyWords"
+                            :image="project.image"
+                            :repo="project.repo"
+                        />
+                    </div>
                 </div>
             </div>
 
             <button
                 type="button"
-                aria-label="Previous project"
+                aria-label="Previous projects"
                 class="border-subtle bg-surface text-body hover:border-accent absolute top-1/2 left-2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border transition sm:-left-5"
                 @click="go(-1)"
             >
@@ -45,7 +42,7 @@
 
             <button
                 type="button"
-                aria-label="Next project"
+                aria-label="Next projects"
                 class="border-subtle bg-surface text-body hover:border-accent absolute top-1/2 right-2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border transition sm:-right-5"
                 @click="go(1)"
             >
@@ -55,41 +52,45 @@
             </button>
         </div>
 
-        <div class="mt-8 flex items-center justify-center gap-2">
+        <div class="mt-4 flex items-center justify-center gap-2 sm:mt-8">
             <button
-                v-for="(project, i) in projects"
-                :key="project.title"
+                v-for="n in pageCount"
+                :key="n"
                 type="button"
-                :aria-label="`Go to ${project.title}`"
-                :class="i === index ? 'bg-accent w-6' : 'bg-tertiary w-2'"
+                :aria-label="`Go to page ${n}`"
+                :class="n - 1 === page ? 'bg-accent w-6' : 'bg-tertiary w-2'"
                 class="h-2 rounded-full transition-all"
-                @click="index = i"
+                @click="page = n - 1"
             ></button>
-        </div>
-
-        <div class="mt-10 flex justify-center">
-            <button class="side-button w-full sm:max-w-[16rem]" @click="$router.push({ name: 'project-view' })">
-                Project view
-            </button>
         </div>
     </section>
 </template>
 
 <script setup>
-import { ref } from "vue";
-import wealthwarden from "../assets/images/wealthwarden.png";
-import sph from "../assets/images/sph.png";
-import ngMl from "../assets/images/ng-ml.png";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
+import ProjectCard from "../components/reusable/ProjectCard.vue";
+import { projects } from "../data/projects";
 
-const projects = [
-    { title: "WealthWarden", description: "Personal finance tracker.", image: wealthwarden },
-    { title: "Polar measurements", description: "Centralized athlete performance measurement platform.", image: sph },
-    { title: "NoiseGuard ML", description: "Audio classification server.", image: ngMl },
-];
+// Slide width is CSS-driven (`md:w-1/2`), but the page count is not derivable
+// in CSS, so the breakpoint has to be read once here to size the dots.
+const mq = window.matchMedia("(min-width: 768px)");
+const perPage = ref(mq.matches ? 2 : 1);
 
-const index = ref(0);
+function syncPerPage() {
+    perPage.value = mq.matches ? 2 : 1;
+}
+
+onMounted(() => mq.addEventListener("change", syncPerPage));
+onUnmounted(() => mq.removeEventListener("change", syncPerPage));
+
+const page = ref(0);
+const pageCount = computed(() => Math.ceil(projects.length / perPage.value));
+
+watch(pageCount, (count) => {
+    if (page.value >= count) page.value = count - 1;
+});
 
 function go(step) {
-    index.value = (index.value + step + projects.length) % projects.length;
+    page.value = (page.value + step + pageCount.value) % pageCount.value;
 }
 </script>

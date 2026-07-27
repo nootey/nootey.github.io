@@ -72,11 +72,6 @@ body {
     scroll-margin-top: 5rem;
 }
 
-/* Standalone pages have no sibling sections to line up with, so they can run wider. */
-.section--wide {
-    max-width: 1600px;
-}
-
 .section__title {
     display: flex;
     align-items: center;

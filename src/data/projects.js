@@ -1,23 +1,3 @@
-<template>
-    <section class="section section--wide">
-        <h2 class="section__title reveal">Project showcase</h2>
-
-        <div class="grid gap-8 md:grid-cols-2">
-            <ProjectCard
-                v-for="project in projects"
-                :key="project.title"
-                :title="project.title"
-                :description="project.description"
-                :tech-stack="project.techStack"
-                :key-words="project.keyWords"
-                :image="project.image"
-            />
-        </div>
-    </section>
-</template>
-
-<script setup>
-import ProjectCard from "../components/reusable/ProjectCard.vue";
 import sphImage from "../assets/images/sph.png";
 import calSisImage from "../assets/images/ims-cal-sis.png";
 import wealthwardenImage from "../assets/images/wealthwarden.png";
@@ -25,7 +5,7 @@ import ngMlImage from "../assets/images/ng-ml.png";
 import ngLicenceImage from "../assets/images/ng-licence.png";
 import anScraperImage from "../assets/images/an-scraper.png";
 
-const projects = [
+export const projects = [
     {
         title: "Wealth Warden",
         description:
@@ -82,4 +62,3 @@ const projects = [
         image: anScraperImage,
     },
 ];
-</script>
