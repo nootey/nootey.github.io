@@ -1,6 +1,6 @@
 <template>
     <section id="about" class="section">
-        <h2 class="section__title reveal-title">
+        <h2 class="section__title reveal">
             <span class="section__num"><span class="section__num-pre">0x</span>01</span>
             About
         </h2>

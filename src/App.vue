@@ -26,13 +26,12 @@ const toggleDarkMode = () => {
     </div>
 </template>
 
-<style lang="scss">
+<style>
 #app {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     text-align: center;
-    //justify-content: center;
     align-items: center;
     width: 100%;
 }
@@ -44,9 +43,7 @@ html {
 .content-wrapper {
     flex: 1;
     padding-top: 80px;
-    //margin-bottom: 80px;
     width: 100%;
-    /* background: var(--background-color-secondary); */
 }
 
 .main-content {
@@ -54,11 +51,5 @@ html {
     max-width: 1600px;
     margin: 0 auto;
     position: sticky;
-}
-
-.title {
-    font-size: 1.4rem;
-    font-weight: 1000;
-    margin-bottom: 20px;
 }
 </style>

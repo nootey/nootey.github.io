@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@1,600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 html[theme="light"] {
@@ -105,12 +105,22 @@ body {
     color: var(--text-color-tertiary);
 }
 
-.reveal-title {
-    animation: revealTitle 4s ease-in-out;
+
+.reveal {
+    animation: reveal ease-out both;
+    animation-duration: auto;
+    animation-timeline: view();
+    animation-range: cover 5% cover 45%;
+}
+
+@supports not (animation-timeline: view()) {
+    .reveal {
+        animation-duration: 0.8s;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    .reveal-title {
+    .reveal {
         animation: none;
     }
 }
@@ -168,28 +178,12 @@ body {
     text-align: left;
 }
 
-.title:before {
-    opacity: 0;
-}
-
-.title {
-    text-align: left;
-    font-size: 2.5rem;
-    font-weight: 700;
-    animation: revealTitle 4s ease-in-out;
-}
-
-@keyframes revealTitle {
-    0% {
+@keyframes reveal {
+    from {
         opacity: 0;
-        transform: translateY(1em); /* Adjusted translateY value for smoother appearance */
+        transform: translateY(1rem);
     }
-    30%,
-    50% {
-        opacity: 1;
-        transform: translateY(0); /* Keep it at translateY(0) to maintain position */
-    }
-    100% {
+    to {
         opacity: 1;
         transform: none;
     }
@@ -313,9 +307,6 @@ body {
     }
     .content-wrapper {
         padding-top: 30px;
-    }
-    .title {
-        text-align: center;
     }
 }
 

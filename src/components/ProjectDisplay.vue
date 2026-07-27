@@ -1,6 +1,6 @@
 <template>
     <section class="section section--wide">
-        <h2 class="section__title reveal-title">Project showcase</h2>
+        <h2 class="section__title reveal">Project showcase</h2>
 
         <div class="grid gap-8 md:grid-cols-2">
             <ProjectCard

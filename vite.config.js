@@ -13,12 +13,5 @@ export default ({ mode }) => {
                 },
             },
         },
-        css: {
-            preprocessorOptions: {
-                scss: {
-                    api: "modern",
-                },
-            },
-        },
     });
 };

@@ -2,9 +2,9 @@
     <section id="home" class="section flex min-h-svh flex-col justify-center">
         <div class="grid items-center gap-8 md:grid-cols-2 md:gap-12">
             <div class="order-2 flex flex-col gap-4 text-center md:order-1 md:text-left">
-                <animated-component>
-                    <h1 class="text-[2rem] font-[1000] tracking-[0.1em] sm:text-[2.5rem] lg:text-5xl">Nootey</h1>
-                </animated-component>
+                <h1 class="hero-title text-[2rem] font-[1000] tracking-[0.1em] sm:text-[2.5rem] lg:text-5xl">
+                    Nootey
+                </h1>
 
                 <p class="text-muted text-lg sm:text-xl">
                     I build
@@ -67,7 +67,6 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from "vue";
-import AnimatedComponent from "../components/reusable/AnimatedComponent.vue";
 import nootDark from "../assets/images/noot-d.png";
 import nootLight from "../assets/images/noot-l.png";
 
@@ -129,6 +128,11 @@ onUnmounted(() => clearTimeout(timer));
 </script>
 
 <style scoped>
+/* Above the fold, so this plays on load rather than on scroll. */
+.hero-title {
+    animation: reveal 0.8s ease-out both;
+}
+
 .caret {
     animation: caret-blink 0.8s steps(1) infinite;
 }
@@ -180,6 +184,7 @@ onUnmounted(() => clearTimeout(timer));
 }
 
 @media (prefers-reduced-motion: reduce) {
+    .hero-title,
     .hero-img,
     .chevron,
     .caret {
