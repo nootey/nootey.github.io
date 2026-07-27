@@ -43,7 +43,7 @@
 const roles = [
     {
         company: "Bitstamp",
-        title: "Software developer",
+        title: "Software engineer",
         date: "March 2026 - Present",
         points: [
             "Part of the Prime team, building products and infrastructure for institutional clients on the platform.",

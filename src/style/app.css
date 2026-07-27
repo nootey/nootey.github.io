@@ -31,8 +31,8 @@ html[theme="dark"] {
     --background-color-secondary: #1a1a1a;
     --background-color-tertiary: #1e1e1e;
     /*--accent-color: #F6C216;*/
-    --accent-color: #fa3c3c;
-    --accent-2-color: #fa623c;
+    --accent-color: #f6a016;
+    --accent-2-color: #f6c216;
     --border-color: #555555;
     --text-color-primary: #ffffff;
     --text-color-secondary: #bebebe;
@@ -131,14 +131,18 @@ body {
     border-radius: 12px;
     background-color: var(--surface);
     box-shadow: var(--shadow);
+    outline: 1px solid transparent;
+    outline-offset: -1px;
     transition:
         transform 0.25s ease,
-        border-color 0.25s ease;
+        border-color 0.25s ease,
+        outline-color 0.25s ease;
 }
 
 .card-surface:hover {
     transform: translateY(-4px);
     border-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
+    outline-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
 }
 
 .chip {
