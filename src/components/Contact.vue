@@ -1,306 +1,85 @@
 <template>
-    <div id="hideOnMobile" class="rectangle">
-        <h2 id="hideOnMobile">Contact</h2>
-    </div>
+    <section id="contact" class="section">
+        <h2 class="section__title reveal-title">
+            <span class="section__num"><span class="section__num-pre">0x</span>04</span>
+            Contact
+        </h2>
 
-    <Smoothie
-        id="contact"
-        :weight="0.01"
-        class="smoothie-container"
-        style="
-            margin-bottom: 80px;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            border-left: 1px solid var(--text-color-primary);
-            border-right: 1px solid var(--text-color-primary);
-        "
-    >
-        <div
-            id="main-row"
-            style="width: 90%; margin-right: auto"
-            class="d-flex flex-row align-items-center justify-content-center g-2"
-        >
-            <div id="main-col" class="d-flex flex-column w-50">
-                <form
-                    id="form"
-                    :action="formActionUrl"
-                    method="POST"
-                    style="
-                        width: 60%;
-                        border-top-left-radius: 20px;
-                        border-top: 8px solid var(--accent-color);
-                        border-left: 8px solid var(--accent-color);
-                    "
-                >
-                    <input type="hidden" name="_subject" :value="'New message from: ' + websiteName" />
+        <div class="grid gap-10 text-left md:grid-cols-[1fr_1.2fr] md:gap-16">
+            <div class="flex flex-col gap-4">
+                <h3 class="text-title text-xl font-semibold">Contact me</h3>
 
-                    <div class="form-group" style="width: 90%">
-                        <label for="formName" class="d-block">
-                            <i class="icon" data-feather="user"></i>
-                        </label>
-                        <input
-                            id="formName"
-                            required
-                            type="text"
-                            name="name"
-                            class="form-control form-control-lg thick"
-                            placeholder="Name"
-                        />
-                    </div>
+                <p class="text-muted font-light">
+                    If you have a project, an idea, or a technical problem that needs solving, feel free to contact me. I'm always open to discussing new projects or opportunities.
+                </p>
 
-                    <div class="form-group position-relative" style="width: 90%">
-                        <label for="formEmail" class="d-block">
-                            <i class="icon" data-feather="mail"></i>
-                        </label>
-                        <input
-                            id="formEmail"
-                            required
-                            type="email"
-                            name="email"
-                            class="form-control form-control-lg thick"
-                            placeholder="E-mail"
-                        />
-                    </div>
+                <p class="text-muted font-light">
+                  Get in touch via the form, or contact me via email directly.
+                </p>
 
-                    <div class="form-group message" style="width: 90%">
-                        <textarea
-                            id="formMessage"
-                            required
-                            name="message"
-                            class="form-control form-control-lg"
-                            rows="7"
-                            placeholder="Message"
-                        ></textarea>
-                    </div>
-
-                    <div class="row mt-3 w-75" style="margin-left: 25%; !important">
-                        <div class="col">
-                            <button id="button" type="submit" class="main-button" tabIndex="-1">Send</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-
-            <div id="main-col" class="d-flex flex-column w-50 gap-2">
-                <animated-component>
-                    <div class="title">Get in touch</div>
-                </animated-component>
-
-                <div class="paragraph-text flex flex-row text-left">
-                    Have any questions? Feel free to contact me, and I'll be happy to assist you as soon as possible.
-                    You can also directly write to the email below.
-                </div>
-
-                <div id="email" class="paragraph-text d-flex flex-row p-2 mt-4">
-                    <div class="row" style="border-left: 5px solid var(--accent-color); padding-left: 10px">
-                        <div class="row"><b>Email</b></div>
-                        <div class="row">
-                            <a href="mailto:jure.bovha2@gmail.com" class="email-link">jure.bovha2@gmail.com</a>
-                        </div>
-                    </div>
+                <div class="border-accent mt-4 border-l-2 pl-4">
+                    <p class="text-title text-sm font-semibold">Email</p>
+                    <a
+                        href="mailto:jure.bovha2@gmail.com"
+                        class="text-muted text-sm break-words underline decoration-1 underline-offset-4 transition-opacity hover:opacity-70"
+                        >jure.bovha2@gmail.com</a
+                    >
                 </div>
             </div>
+
+            <form :action="formActionUrl" method="POST" class="flex flex-col gap-5">
+                <input type="hidden" name="_subject" :value="'New message from: ' + websiteName" />
+
+                <div class="flex flex-col gap-2">
+                    <label for="formName" class="text-faint text-xs font-medium tracking-wider uppercase">Name</label>
+                    <input
+                        id="formName"
+                        required
+                        type="text"
+                        name="name"
+                        autocomplete="name"
+                        placeholder="Your name"
+                        class="border-subtle bg-surface text-body placeholder:text-faint focus:border-accent focus:ring-accent/30 w-full rounded-lg border px-4 py-3 text-sm transition focus:ring-2 focus:outline-none"
+                    />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="formEmail" class="text-faint text-xs font-medium tracking-wider uppercase">E-mail</label>
+                    <input
+                        id="formEmail"
+                        required
+                        type="email"
+                        name="email"
+                        autocomplete="email"
+                        placeholder="you@example.com"
+                        class="border-subtle bg-surface text-body placeholder:text-faint focus:border-accent focus:ring-accent/30 w-full rounded-lg border px-4 py-3 text-sm transition focus:ring-2 focus:outline-none"
+                    />
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label for="formMessage" class="text-faint text-xs font-medium tracking-wider uppercase"
+                        >Message</label
+                    >
+                    <textarea
+                        id="formMessage"
+                        required
+                        name="message"
+                        rows="7"
+                        placeholder="What's on your mind?"
+                        class="border-subtle bg-surface text-body placeholder:text-faint focus:border-accent focus:ring-accent/30 w-full resize-y rounded-lg border px-4 py-3 text-sm transition focus:ring-2 focus:outline-none"
+                    ></textarea>
+                </div>
+
+                <div class="w-full sm:max-w-[12rem]">
+                    <button type="submit" class="main-button">Send</button>
+                </div>
+            </form>
         </div>
-    </Smoothie>
+    </section>
 </template>
 
 <script setup>
-import { Smoothie } from "vue-smoothie";
-import AnimatedComponent from "../components/reusable/AnimatedComponent.vue";
-
-const props = defineProps({
-    darkMode: Boolean,
-});
-
 const formspreeId = import.meta.env.VITE_FORMSPREE_ID;
 const formActionUrl = `https://formspree.io/f/${formspreeId}`;
 const websiteName = import.meta.env.VITE_WEBSITE_NAME;
-
-function sendMessage() {
-    const formName = document.getElementById("formName");
-    const formEmail = document.getElementById("formEmail");
-    const formMessage = document.getElementById("formMessage");
-
-    const name = formName?.value;
-    const email = formEmail?.value;
-    const message = formMessage?.value;
-
-    console.log(name);
-    console.log(email);
-    console.log(message);
-}
 </script>
-
-<style scoped>
-form {
-    max-width: 50rem;
-    margin: 0 auto;
-    .form-control:focus {
-        color: var(--text-color-primary);
-    }
-    .form-control {
-        margin: 20px;
-        background-color: var(--background-color-secondary);
-        border-radius: 1rem;
-        border: none;
-        box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.11);
-
-        &.thick {
-            height: 3.3rem;
-            padding: 0.5rem 1.8rem;
-            font-size: 1rem;
-        }
-
-        &:focus {
-            border: 1px solid var(--accent-color);
-            box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.11);
-        }
-    }
-
-    .message .form-control {
-        padding: 0.5rem 1.8rem;
-        font-size: 1rem;
-    }
-
-    ::placeholder {
-        color: #838788;
-        position: relative;
-        left: 0;
-    }
-
-    input,
-    textarea {
-        color: var(--text-color-primary);
-        max-height: 500px;
-    }
-
-    .icon {
-        color: #57565c;
-        height: 1.3rem;
-        position: absolute;
-        left: 1.5rem;
-        top: 1.1rem;
-    }
-}
-
-.rectangle {
-    position: absolute;
-    z-index: 2;
-    background-color: var(--accent-color);
-    transform: translateY(50%);
-    top: 300%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    width: calc(((100vw - 90%) / 2) + 90px);
-    max-width: 180px;
-    right: 0;
-    margin-right: calc((100vw - 1800px) / 2);
-    border-radius: 25px;
-    padding-right: 3.5rem;
-    overflow-x: hidden;
-}
-
-.rectangle h2 {
-    background: none !important;
-    text-transform: uppercase;
-    font-size: 1.75rem;
-    font-weight: 700;
-    color: var(--background-color-primary);
-    display: flex;
-    align-items: center;
-    margin-left: 45%;
-    margin-bottom: 0;
-    transform: rotate(-90deg);
-}
-
-@media only screen and (max-width: 1770px) {
-    .rectangle {
-        margin-right: 0 !important;
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-}
-
-@media only screen and (max-width: 1100px) {
-    .rectangle {
-        max-width: 90px;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    form {
-        .form-control {
-            margin: 10px !important;
-        }
-    }
-    #hideOnMobile {
-        display: none;
-    }
-    #email {
-        width: 50% !important;
-    }
-    #main-row {
-        width: 100% !important;
-        flex-direction: column;
-        flex-wrap: wrap-reverse;
-        padding: 1rem;
-        gap: 2rem;
-    }
-    #main-col {
-        width: 100% !important;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
-    }
-    .paragraph-text {
-        font-size: 1rem !important;
-    }
-}
-
-@media only screen and (max-width: 625px) {
-    #button {
-        font-size: 0.8rem !important;
-    }
-
-    #email {
-        width: 70% !important;
-    }
-
-    #form {
-        width: 75% !important;
-        border-top: 4px solid var(--accent-color) !important;
-        border-left: 4px solid var(--accent-color) !important;
-    }
-
-    .form-control {
-        &.thick {
-            height: 2rem !important;
-            padding: 0.5rem 1.25rem !important;
-            font-size: 0.9rem !important;
-        }
-    }
-
-    .message .form-control {
-        padding: 0.5rem 1.25rem !important;
-        font-size: 0.9rem !important;
-    }
-
-    textarea {
-        max-height: 125px !important;
-    }
-}
-
-.email-link {
-    color: var(--text-color-primary);
-    font-weight: 600;
-    text-decoration: underline;
-    word-break: break-word;
-}
-
-.email-link:hover {
-    opacity: 0.8;
-}
-</style>

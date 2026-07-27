@@ -3,7 +3,7 @@
     <About :dark-mode="darkMode" />
     <Experience />
     <Projects :dark-mode="darkMode" />
-    <Contact :dark-mode="darkMode" />
+    <Contact />
 </template>
 
 <script setup>

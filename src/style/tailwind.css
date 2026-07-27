@@ -24,6 +24,7 @@
     --color-body: var(--text-color-primary);
     --color-muted: var(--text-color-secondary);
     --color-faint: var(--text-color-tertiary);
+    --color-footer: var(--footer-color);
 
     --color-subtle: var(--border-subtle);
 
