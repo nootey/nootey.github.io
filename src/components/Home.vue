@@ -35,7 +35,7 @@
                         aria-hidden="true"
                     />
                     <img
-                        :src="nLogo"
+                        :src="logo"
                         alt="Penguin logo"
                         class="hero-img relative w-full max-w-[200px] rounded-full border border-subtle bg-[var(--hero-plate)] p-4 shadow-[8px_12px_22px_-6px_var(--hero-glow),var(--shadow)] sm:max-w-[260px] md:max-w-[320px]"
                     />
@@ -66,13 +66,16 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from "vue";
+import { ref, computed, onMounted, onUnmounted } from "vue";
 import AnimatedComponent from "../components/reusable/AnimatedComponent.vue";
-import nLogo from "../assets/images/n-logo.png";
+import nootDark from "../assets/images/noot-d.png";
+import nootLight from "../assets/images/noot-l.png";
 
-defineProps({
+const props = defineProps({
     darkMode: Boolean,
 });
+
+const logo = computed(() => (props.darkMode ? nootDark : nootLight));
 
 const roles = ["distributed systems.", "automation scripts.", "full stack products."];
 const typed_role = ref("");

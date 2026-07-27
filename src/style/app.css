@@ -155,8 +155,9 @@ body {
 
 @media only screen and (max-width: 800px) {
     .section {
-        width: 92%;
+        width: 100%;
         padding-block: 4rem;
+        padding-inline: 1.5rem;
     }
 
     .section__title {
