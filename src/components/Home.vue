@@ -7,8 +7,9 @@
                 </animated-component>
 
                 <p class="text-muted text-lg sm:text-xl">
-                    I build <span class="text-accent">{{ typed_role }}</span
-                    ><span
+                    I build
+                    <span class="text-accent">{{ typed_role }}</span>
+                    <span
                         class="caret ml-[3px] inline-block h-[1em] w-0.5 bg-accent align-text-bottom"
                         aria-hidden="true"
                     />

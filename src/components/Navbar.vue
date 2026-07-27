@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="progress-bar fixed top-0 left-0 z-[1000] h-[3px]"
-        :style="{ width: `${scroll_progress}%` }"
-    />
+    <div class="progress-bar fixed top-0 left-0 z-[1000] h-[3px]" :style="{ width: `${scroll_progress}%` }" />
 
     <header class="header fixed inset-x-0 top-0 z-[900] h-16 flex items-center" :class="{ 'is-scrolled': scrolled }">
         <div class="mx-auto flex w-[90%] max-w-[1100px] items-center justify-between gap-6">
@@ -137,15 +134,17 @@ function onScroll() {
 
 /*
  * Looked up fresh, not cached: sections are rendered by sibling components, so a
- * re-render swaps the nodes and a held reference goes stale. The header line
- * keeps this independent of section height, which varies from stubs to full blocks.
+ * re-render swaps the nodes and a held reference goes stale. The line sits a third
+ * of the way down rather than under the header: sections carry 6rem of top padding,
+ * so a section's top edge trails its visible heading by roughly that much.
  */
 function updateActive() {
     let current = "";
+    const line = Math.max(96, window.innerHeight * 0.35);
 
     for (const id of spy_ids) {
         const section = document.getElementById(id);
-        if (section && section.getBoundingClientRect().top <= 96) current = id;
+        if (section && section.getBoundingClientRect().top <= line) current = id;
     }
 
     const scrollable = document.documentElement.scrollHeight - window.innerHeight;
