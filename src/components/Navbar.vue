@@ -3,8 +3,13 @@
 
     <header class="header fixed inset-x-0 top-0 z-[900] h-16 flex items-center" :class="{ 'is-scrolled': scrolled }">
         <div class="mx-auto flex w-[90%] max-w-[1100px] items-center justify-between gap-6">
-            <a href="/#home" class="flex shrink-0 items-center" @click="closeMobileNav">
-                <img :src="darkMode ? nLight : nDark" class="h-[33px] w-auto" alt="Home" />
+            <a
+                href="/#home"
+                class="logo-link -ml-1.5 flex shrink-0 items-center rounded-full p-1.5"
+                aria-label="Home"
+                @click="closeMobileNav"
+            >
+                <span class="logo-mark h-[33px] w-[33px]" aria-hidden="true" />
             </a>
 
             <nav
@@ -101,8 +106,6 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import nLight from "../assets/images/n-light.png";
-import nDark from "../assets/images/n-dark.png";
 
 defineProps({
     darkMode: Boolean,
@@ -211,6 +214,33 @@ onUnmounted(() => {
 .header.is-scrolled {
     border-bottom-color: var(--border-subtle);
     box-shadow: var(--shadow);
+}
+
+/*
+ * Masked rather than an <img> so the mark takes a colour like the icons do.
+ * Both logo PNGs are flat monochrome over the same alpha silhouette, so one
+ * of them serves as the mask for both themes and the colour comes from here.
+ */
+.logo-mark {
+    background-color: var(--text-color-primary);
+    mask: url("../assets/images/n-light.png") center / contain no-repeat;
+    -webkit-mask: url("../assets/images/n-light.png") center / contain no-repeat;
+    transition: background-color 0.25s ease;
+}
+
+.logo-link {
+    transition:
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.logo-link:hover {
+    background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
+    transform: translateY(-1px);
+}
+
+.logo-link:hover .logo-mark {
+    background-color: var(--accent-color);
 }
 
 .icon-btn {
