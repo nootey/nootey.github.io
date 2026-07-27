@@ -6,7 +6,11 @@ This is a personal page and portfolio showcase of done projects.
 
 ## Stack
 
-Vue 3 and TypeScript + Bootstrap for styling.
+Vue 3 (Composition API, plain JavaScript - not TypeScript), Pinia, Tailwind CSS v4. Nothing else.
+
+Tailwind is wired through `@tailwindcss/vite`; there is no `tailwind.config.js` and no PostCSS
+step. The entry is `src/style/tailwind.css`, which also defines the `dark:` variant against the
+`theme` attribute set on `<html>` by `services/store/theme.js`.
 
 ## Workflow
 
@@ -19,9 +23,14 @@ Before implementing:
 
 ## Styling
 
-- Prefer Bootstrap utility classes before writing custom CSS classes.
-- For responsive styles that require a media query, use a scoped `<style>` block with an `id`-based selector - never a custom class.
-- Do not use arbitrary inline `style` attributes for spacing/layout - reach for PrimeFlex first.
+- Prefer Tailwind utility classes before writing custom CSS.
+- Handle responsive styles with Tailwind breakpoint prefixes (`sm:`, `md:`, `lg:`), not media queries.
+- Do not use arbitrary inline `style` attributes for spacing/layout - reach for Tailwind first.
+- Shared section styling (section padding, numbered titles, chips, card surfaces) lives as
+  primitives in `src/style/app.css`. Reuse those primitives rather than re-deriving the same
+  set of utilities in every component.
+- Theme colours are CSS custom properties defined per theme in `src/style/app.css`. Read them
+  through those variables; never hardcode a hex value in a component.
 
 ## Development Guidelines
 

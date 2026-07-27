@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@1,600&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital@1&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 html[theme="light"] {
     --background-color-primary: #ffffff;
     --background-color-secondary: #f5f5f5;
     --background-color-tertiary: #e3e3e3;
-    --accent-color: #476ef7;
+    /*--accent-color: #476EF7;*/
+    --accent-color: #f6a016;
+    --accent-2-color: #f6c216;
     --border-color: #dee2e6;
     --text-color-primary: #222;
     --text-color-secondary: #524c4c;
@@ -15,13 +17,22 @@ html[theme="light"] {
     --footer-color: #262323;
     --scrollbar-thumb-color: #888;
     --scrollbar-thumb-hover-color: #555;
+
+    --surface: #f7f8fa;
+    --surface-2: #eef0f4;
+    --hero-plate: #f2f4f7;
+    --hero-glow: rgb(120 132 152 / 0.32);
+    --border-subtle: rgb(0 0 0 / 0.08);
+    --shadow: 0 1px 2px rgb(16 24 40 / 0.04), 0 8px 24px rgb(16 24 40 / 0.06);
 }
 
 html[theme="dark"] {
     --background-color-primary: #100f0f;
     --background-color-secondary: #1a1a1a;
     --background-color-tertiary: #1e1e1e;
-    --accent-color: #f6c216;
+    /*--accent-color: #F6C216;*/
+    --accent-color: #f6a016;
+    --accent-2-color: #f6c216;
     --border-color: #555555;
     --text-color-primary: #ffffff;
     --text-color-secondary: #bebebe;
@@ -30,31 +41,137 @@ html[theme="dark"] {
     --footer-color: #222121;
     --scrollbar-thumb-color: #888;
     --scrollbar-thumb-hover-color: #555;
+
+    --surface: #171717;
+    --surface-2: #202020;
+
+    --hero-plate: #e6e7ea;
+    --hero-glow: rgb(158 164 178 / 0.22);
+    --border-subtle: rgb(255 255 255 / 0.09);
+    --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.45);
 }
 
+/*
+ * Scoped to body on purpose: a `* { background }` rule flattens every card,
+ * chip and surface in the app. Colour and font inherit from here instead.
+ */
 body {
-    background-color: var(--background-color-primary);
-    color: var(--text-color-primary);
-}
-
-* {
     font-size: 1rem;
-    color: var(--text-color-primary);
-    background: var(--background-color-primary);
     font-family: "Poppins", sans-serif;
+    color: var(--text-color-primary);
+    background-color: var(--background-color-primary);
 }
 
-.smoothie-container {
+/* --- Section primitives ------------------------------------------------- */
+
+.section {
     width: 90%;
-    max-width: 1600px;
-    height: 100vh;
-    /*padding-top: 100px;*/
-    overflow: hidden !important;
-    color: var(--text-color-primary);
-    background: var(--background-color-primary);
-    align-content: center;
-    gap: 10px;
+    max-width: 1100px;
+    margin-inline: auto;
+    padding-block: 6rem;
+    scroll-margin-top: 5rem;
 }
+
+/* Standalone pages have no sibling sections to line up with, so they can run wider. */
+.section--wide {
+    max-width: 1600px;
+}
+
+.section__title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--title-color-primary);
+}
+
+.section__title::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background-color: var(--border-subtle);
+}
+
+.section__num {
+    font-family: "Source Code Pro", monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent-color);
+}
+
+.section__num-pre {
+    color: var(--text-color-tertiary);
+}
+
+
+.reveal {
+    animation: reveal ease-out both;
+    animation-duration: auto;
+    animation-timeline: view();
+    animation-range: cover 5% cover 45%;
+}
+
+@supports not (animation-timeline: view()) {
+    .reveal {
+        animation-duration: 0.8s;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        animation: none;
+    }
+}
+
+.card-surface {
+    padding: 1.5rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 12px;
+    background-color: var(--surface);
+    box-shadow: var(--shadow);
+    outline: 1px solid transparent;
+    outline-offset: -1px;
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        outline-color 0.25s ease;
+}
+
+.card-surface:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
+    outline-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
+}
+
+.chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+    background-color: var(--surface-2);
+    color: var(--text-color-secondary);
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1;
+}
+
+@media only screen and (max-width: 800px) {
+    .section {
+        width: 100%;
+        padding-block: 4rem;
+        padding-inline: 1.5rem;
+    }
+
+    .section__title {
+        font-size: 1.4rem;
+        margin-bottom: 1.75rem;
+    }
+}
+
+/* ------------------------------------------------------------------------ */
 
 .paragraph-text {
     display: flex;
@@ -65,28 +182,12 @@ body {
     text-align: left;
 }
 
-.title:before {
-    opacity: 0;
-}
-
-.title {
-    text-align: left;
-    font-size: 2.5rem;
-    font-weight: 700;
-    animation: revealTitle 4s ease-in-out;
-}
-
-@keyframes revealTitle {
-    0% {
+@keyframes reveal {
+    from {
         opacity: 0;
-        transform: translateY(1em); /* Adjusted translateY value for smoother appearance */
+        transform: translateY(1rem);
     }
-    30%,
-    50% {
-        opacity: 1;
-        transform: translateY(0); /* Keep it at translateY(0) to maintain position */
-    }
-    100% {
+    to {
         opacity: 1;
         transform: none;
     }
@@ -199,32 +300,17 @@ body {
 }
 
 @media only screen and (max-width: 1360px) {
-    * {
+    body {
         font-size: 0.92rem;
     }
 }
 
-@media only screen and (max-width: 1000px) {
-    .smoothie-container {
-        border-left: none !important;
-        border-right: none !important;
-    }
-}
-
 @media only screen and (max-width: 800px) {
-    .smoothie-container {
-        width: 92%;
-        padding-top: 20px;
-        margin-top: 0;
-    }
     .paragraph-text {
         text-align: center;
     }
     .content-wrapper {
         padding-top: 30px;
-    }
-    .title {
-        text-align: center;
     }
 }
 

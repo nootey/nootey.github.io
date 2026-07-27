@@ -1,4 +1,4 @@
-.PHONY: lint lint-check format
+.PHONY: lint lint-check format build
 
 lint:
 	pnpm lint
@@ -8,3 +8,6 @@ lint-check:
 
 format:
 	pnpm format
+
+build:
+	pnpm build
