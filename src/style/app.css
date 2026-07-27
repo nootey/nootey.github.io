@@ -23,7 +23,6 @@ html[theme="light"] {
     --hero-plate: #f2f4f7;
     --hero-glow: rgb(120 132 152 / 0.32);
     --border-subtle: rgb(0 0 0 / 0.08);
-    --accent-rgb: 30 68 186; /* keep in sync with --accent-color */
     --shadow: 0 1px 2px rgb(16 24 40 / 0.04), 0 8px 24px rgb(16 24 40 / 0.06);
 }
 
@@ -49,7 +48,6 @@ html[theme="dark"] {
     --hero-plate: #e6e7ea;
     --hero-glow: rgb(158 164 178 / 0.22);
     --border-subtle: rgb(255 255 255 / 0.09);
-    --accent-rgb: 242 163 0; /* keep in sync with --accent-color */
     --shadow: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.45);
 }
 
@@ -72,6 +70,11 @@ body {
     margin-inline: auto;
     padding-block: 6rem;
     scroll-margin-top: 5rem;
+}
+
+/* Standalone pages have no sibling sections to line up with, so they can run wider. */
+.section--wide {
+    max-width: 1600px;
 }
 
 .section__title {
@@ -125,7 +128,7 @@ body {
 
 .card-surface:hover {
     transform: translateY(-4px);
-    border-color: rgb(var(--accent-rgb) / 0.45);
+    border-color: color-mix(in srgb, var(--accent-color) 45%, transparent);
 }
 
 .chip {

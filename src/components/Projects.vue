@@ -83,7 +83,7 @@ import ngMl from "../assets/images/ng-ml.png";
 
 const projects = [
     { title: "WealthWarden", description: "Personal finance tracker.", image: wealthwarden },
-    { title: "Sportheartt", description: "Centralized athlete performance measurement platform.", image: sph },
+    { title: "Polar measurements", description: "Centralized athlete performance measurement platform.", image: sph },
     { title: "NoiseGuard ML", description: "Audio classification server.", image: ngMl },
 ];
 

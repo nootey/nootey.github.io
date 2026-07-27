@@ -229,7 +229,7 @@ onUnmounted(() => {
 
 .icon-btn:hover {
     color: var(--accent-color);
-    background-color: rgb(var(--accent-rgb) / 0.1);
+    background-color: color-mix(in srgb, var(--accent-color) 10%, transparent);
     transform: translateY(-1px);
 }
 
