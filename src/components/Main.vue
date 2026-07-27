@@ -2,7 +2,7 @@
     <Home :dark-mode="darkMode" />
     <About :dark-mode="darkMode" />
     <Experience />
-    <Projects :dark-mode="darkMode" />
+    <Projects />
     <Contact />
 </template>
 

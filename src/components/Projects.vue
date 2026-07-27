@@ -1,254 +1,95 @@
 <template>
-    <div id="hideOnMobile" class="rectangle">
-        <h2 id="hideOnMobile">Projects</h2>
-    </div>
+    <section id="projects" class="section">
+        <h2 class="section__title reveal-title">
+            <span class="section__num"><span class="section__num-pre">0x</span>03</span>
+            Projects
+        </h2>
 
-    <Smoothie
-        id="projects"
-        :weight="0.01"
-        class="smoothie-container"
-        style="border-left: 1px solid var(--text-color-primary); border-right: 1px solid var(--text-color-primary)"
-    >
-        <div
-            id="main-row"
-            style="width: 80%; margin: auto"
-            class="d-flex flex-column align-items-center justify-content-center gap-4"
-        >
-            <animated-component>
-                <div class="title">Projects</div>
-            </animated-component>
-            <!-- Left text -->
-            <div class="d-flex flex-row">
-                <div class="paragraph-text text-center">
-                    Here are a few projects I’ve worked on—ranging from professional applications developed as part of
-                    my full-time role to personal experiments and side projects. They reflect my interest in solving
-                    real problems.
-                </div>
-            </div>
+        <p class="text-muted mb-10 text-left font-light">
+            Here are a few projects I’ve worked on — ranging from professional applications developed as part of my full-time role to personal experiments and side projects. They reflect my interest in solving real problems.
+        </p>
 
-            <!--
-                Right carousel — DISABLED, awaiting the hand-rolled Vue replacement (Phase 5).
-                This was driven entirely by Bootstrap's JS (data-bs-ride / data-bs-slide /
-                .carousel-item.active), which no longer exists now that Bootstrap is removed.
-                Left in place as the spec for the replacement: 3 slides, prev/next, caption
-                overlay, whole thing clicks through to the 'project-view' route.
-
-            <div id="inner" class="d-flex flex-row" style="width: 80%">
-                <div class="carousel-wrapper">
-                    <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner" @click="$router.push({ name: 'project-view' })">
-                            <div class="carousel-item active">
-                                <img src="../assets/images/wealthwarden.png" class="d-block w-100" alt="WealthWarden" />
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5 class="carousel-text">WealthWarden</h5>
-                                    <p class="carousel-text">Personal finance tracker.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item active">
-                                <img src="../assets/images/sph.png" class="d-block w-100" alt="Sportheartt" />
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5 class="carousel-text">Sportheartt</h5>
-                                    <p class="carousel-text">Centralized athlete performance measurement platform.</p>
-                                </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="../assets/images/ng-ml.png" class="d-block w-100" alt="NoiseGuard ML" />
-                                <div class="carousel-caption d-none d-md-block">
-                                    <h5 class="carousel-text">NoiseGuard ML</h5>
-                                    <p class="carousel-text">Audio classification server.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <button
-                            class="carousel-control-prev"
-                            type="button"
-                            data-bs-target="#projectCarousel"
-                            data-bs-slide="prev"
-                        >
-                            <span class="custom-arrow left-arrow"></span>
-                        </button>
-                        <button
-                            class="carousel-control-next"
-                            type="button"
-                            data-bs-target="#projectCarousel"
-                            data-bs-slide="next"
-                        >
-                            <span class="custom-arrow right-arrow"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            -->
-
-            <div class="d-flex flex-row w-100 justify-content-center mt-2">
-                <button
-                    class="side-button"
-                    tabIndex="-1"
-                    style="width: 50%"
-                    @click="$router.push({ name: 'project-view' })"
+        <div class="relative mx-auto max-w-4xl">
+            <div class="overflow-hidden rounded-3xl">
+                <div
+                    class="flex transition-transform duration-500 ease-out"
+                    :style="{ transform: `translateX(-${index * 100}%)` }"
                 >
-                    Project view
-                </button>
+                    <button
+                        v-for="project in projects"
+                        :key="project.title"
+                        type="button"
+                        class="w-full shrink-0 cursor-pointer"
+                        @click="$router.push({ name: 'project-view' })"
+                    >
+                        <img :src="project.image" :alt="project.title" class="block h-auto w-full" />
+
+                        <div class="bg-surface -mt-4 px-5 py-2 text-left sm:px-6">
+                            <h3 class="text-title text-base font-semibold sm:text-lg">{{ project.title }}</h3>
+                            <p class="text-muted text-sm font-light">{{ project.description }}</p>
+                        </div>
+                    </button>
+                </div>
             </div>
+
+            <button
+                type="button"
+                aria-label="Previous project"
+                class="border-subtle bg-surface text-body hover:border-accent absolute top-1/2 left-2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border transition sm:-left-5"
+                @click="go(-1)"
+            >
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="15 18 9 12 15 6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
+
+            <button
+                type="button"
+                aria-label="Next project"
+                class="border-subtle bg-surface text-body hover:border-accent absolute top-1/2 right-2 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border transition sm:-right-5"
+                @click="go(1)"
+            >
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="9 18 15 12 9 6" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+            </button>
         </div>
-    </Smoothie>
+
+        <div class="mt-8 flex items-center justify-center gap-2">
+            <button
+                v-for="(project, i) in projects"
+                :key="project.title"
+                type="button"
+                :aria-label="`Go to ${project.title}`"
+                :class="i === index ? 'bg-accent w-6' : 'bg-tertiary w-2'"
+                class="h-2 rounded-full transition-all"
+                @click="index = i"
+            ></button>
+        </div>
+
+        <div class="mt-10 flex justify-center">
+            <button class="side-button w-full sm:max-w-[16rem]" @click="$router.push({ name: 'project-view' })">
+                Project view
+            </button>
+        </div>
+    </section>
 </template>
 
 <script setup>
-import { Smoothie } from "vue-smoothie";
-import AnimatedComponent from "../components/reusable/AnimatedComponent.vue";
+import { ref } from "vue";
+import wealthwarden from "../assets/images/wealthwarden.png";
+import sph from "../assets/images/sph.png";
+import ngMl from "../assets/images/ng-ml.png";
 
-const props = defineProps({
-    darkMode: Boolean,
-});
+const projects = [
+    { title: "WealthWarden", description: "Personal finance tracker.", image: wealthwarden },
+    { title: "Sportheartt", description: "Centralized athlete performance measurement platform.", image: sph },
+    { title: "NoiseGuard ML", description: "Audio classification server.", image: ngMl },
+];
+
+const index = ref(0);
+
+function go(step) {
+    index.value = (index.value + step + projects.length) % projects.length;
+}
 </script>
-
-<style scoped>
-.rectangle {
-    position: absolute;
-    z-index: 2;
-    background-color: var(--accent-color);
-    transform: translateY(50%);
-    top: 200%;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    width: calc(((100vw - 90%) / 2) + 90px);
-    max-width: 180px;
-    left: 0;
-    margin-left: calc((100vw - 1800px) / 2);
-    border-radius: 25px;
-    padding-right: 3.5rem;
-    overflow-x: hidden;
-}
-
-.rectangle h2 {
-    background: none !important;
-    text-transform: uppercase;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--background-color-primary);
-    display: flex;
-    align-items: center;
-    margin-left: 45%;
-    margin-bottom: 0;
-    transform: rotate(90deg);
-}
-
-@media only screen and (max-width: 1770px) {
-    .rectangle {
-        margin-left: 0 !important;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-}
-
-@media only screen and (max-width: 1100px) {
-    .rectangle {
-        max-width: 90px;
-    }
-}
-
-#main-row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
-}
-
-@media only screen and (max-width: 800px) {
-    #hideOnMobile {
-        display: none;
-    }
-    #main-row {
-        width: 100% !important;
-        flex-direction: column;
-        flex-wrap: wrap;
-    }
-    #inner {
-        width: 100% !important;
-    }
-    .paragraph-text {
-        font-size: 1rem !important;
-        width: 100% !important;
-    }
-}
-
-.carousel-wrapper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.carousel-wrapper:hover {
-    cursor: pointer;
-}
-
-.carousel {
-    width: 100%;
-}
-
-.carousel-item img {
-    border-radius: 12px;
-    width: 100%;
-    height: auto;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: transparent;
-    border-radius: 0;
-    padding: 0;
-    background-size: 100% 100%;
-    width: 36px;
-    height: 36px;
-}
-
-.custom-arrow {
-    display: inline-block;
-    width: 36px;
-    height: 36px;
-    background-color: var(--text-color-primary);
-    mask-size: contain;
-    -webkit-mask-size: contain;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-}
-
-/* Thin Left Arrow */
-.left-arrow {
-    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='15 18 9 12 15 6'/></svg>");
-    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='15 18 9 12 15 6'/></svg>");
-}
-
-/* Thin Right Arrow */
-.right-arrow {
-    mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='9 18 15 12 9 6'/></svg>");
-    -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><polyline points='9 18 15 12 9 6'/></svg>");
-}
-
-.carousel-control-prev {
-    left: -4%;
-}
-
-.carousel-control-next {
-    right: -4%;
-}
-
-.carousel-caption {
-    background-color: rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 8px;
-    padding: 1rem;
-}
-
-.carousel-text {
-    background-color: transparent;
-    color: white;
-}
-</style>
